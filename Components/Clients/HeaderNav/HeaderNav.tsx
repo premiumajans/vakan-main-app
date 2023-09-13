@@ -9,10 +9,7 @@ const HeaderNav = () => {
   const { t } = useTranslation("common");
   const { pathname } = useRouter();
   const [whiteNav, setWhiteNav] = useState("scrolled");
-
-
   
-
   useEffect(() => {
     const handleSubmit = (e: any) => {
       if (e.target.scrollingElement.scrollTop > 250) {
@@ -68,7 +65,8 @@ const HeaderNav = () => {
           <div className="nav-secondary">
             <div className="nav-i">
               <Link className="nav-i-link nav-i-link_current" href="/jobs">
-                {t("find-a-job")}
+                {/* {t("find-a-job")} */}
+                ksahdsgdhs
               </Link>
             </div>
             <div className="nav-i">
