@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            {/* <div
+            <div
               className={"col-lg-3 col-md-4 col-12 d-flex justify-content-end"}
               data-aos="fade-up "
             >
@@ -90,19 +90,19 @@ const Footer = () => {
                       >
                         <span className="icon icon-phone"></span>
                         <span className="text">
-                          {settings.find((item) => item.name == "phone-1").link}
+                          {settings.find((item) => item.name == "phone-1")?.link}
                         </span>
                       </Link>
                     </li>
                     <li>
                       <Link
                         href={`tel:${
-                          settings.find((item) => item.name == "phone-2").link
+                          settings.find((item) => item.name == "phone-2")?.link
                         }`}
                       >
                         <span className="icon icon-phone"></span>
                         <span className="text">
-                          {settings.find((item) => item.name == "phone-2").link}
+                          {settings.find((item) => item.name == "phone-2")?.link}
                         </span>
                       </Link>
                     </li>
@@ -146,7 +146,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div className="row">
             <div className="col-md-12 text-center">
