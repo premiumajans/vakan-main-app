@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div
+            {/* <div
               className={"col-lg-3 col-md-4 col-12 d-flex justify-content-end"}
               data-aos="fade-up "
             >
@@ -146,7 +146,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="row">
             <div className="col-md-12 text-center">
