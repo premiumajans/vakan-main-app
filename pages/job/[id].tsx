@@ -78,7 +78,7 @@ const Index = ({
             <div className="d-block d-lg-none w-100">
               <AnnouncementDetail
                 id={vacancy.id}
-                className="w-full"
+                // className="w-full"
                 shared_time={vacancy.shared_time}
                 last_time={vacancy.end_time}
                 view_count={vacancy.view_count}

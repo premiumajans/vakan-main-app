@@ -1,10 +1,8 @@
-"use client"
-import React, { useRef, useState } from "react";
+import React from "react";
 import Email from "../../public/images/job-detail-message.svg";
 import Calendar from "../../public/images/job-detail-calendar.svg";
 import Eye from "../../public/images/job-detail-eyes.svg";
 import Lock from "../../public/images/job-detail-lock.svg";
-import openLock from "../../public/clients/images/job-detail-lock-open.svg";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
@@ -13,7 +11,6 @@ interface IAnnouncementDetail {
   shared_time: string;
   last_time: string;
   view_count: number;
-  className?:string
 }
 
 function AnnouncementDetail({
@@ -21,12 +18,7 @@ function AnnouncementDetail({
   shared_time,
   last_time,
   view_count,
-  className=""
 }: IAnnouncementDetail) {
-  const [lock, setLock] = useState<boolean>(true);
-  const handleLock = () => {
-    setLock(!lock);
-  };
   const { i18n, t } = useTranslation("common");
   const dateFormatter = (arg: string) => {
     const month = arg?.split("-")[1];
@@ -34,34 +26,28 @@ function AnnouncementDetail({
     return date;
   };
 
-  const copyText = () => {
-    const emailEl = document.querySelector(".email");
-  };
   return (
-    <div data-aos="fade-left" className={`${className} announcement-detail bg-white`}>
+    <div data-aos="fade-left" className="announcement-detail bg-white">
       <h3>Elan #{id}</h3>
       <div className="job-detail-inner-top d-flex justify-content-between align-items-center pb-3">
         <div className="d-flex align-items-center">
-          <div className="img-box mr-3">
+          <div className="img-box mr-4">
             <Image src={Email} width={22} alt="email" />
           </div>
           <div>
-            <span onClick={copyText} className="email">
-              {lock ? "E-poçtu göstər" : "demo.vakant@gmail.com"}
-            </span>
+            <span>E-poçtu göstər</span>
             <p className="mb-0">E-poçt ünvanı</p>
           </div>
         </div>
-        <div onClick={handleLock} className="img-box">
-          <Image alt="lock" src={lock ? Lock : openLock} />
+        <div className="img-box">
+          <Image alt="lock" src={Lock} />
         </div>
       </div>
 
       <div className="job-detail-bottom pt-3">
-        <div className="announcement-time w-100 d-flex flex-column flex-sm-row align-items-sm-center">
-        
+        <div className="announcement-time w-100 d-flex align-items-center">
           <div className="date-time-box d-flex align-items-center">
-            <div className="img-box mr-3">
+            <div className="img-box mr-4">
               <Image src={Calendar} width={22} alt="calendar" />
             </div>
 
@@ -71,7 +57,7 @@ function AnnouncementDetail({
             </div>
           </div>
 
-          <div className="date-time-box ml-5 pl-3 ml-sm-0 pl-sm-0">
+          <div className="date-time-box">
             <span>{dateFormatter(last_time)}</span>
             <p className="mb-0">Bitmə tarixi</p>
           </div>
@@ -80,7 +66,7 @@ function AnnouncementDetail({
           style={{ marginTop: "16px" }}
           className="date-time-box d-flex align-items-center"
         >
-          <div className="img-box mr-3">
+          <div className="img-box mr-4">
             <Image src={Eye} width={22} alt="calendar" />
           </div>
 
