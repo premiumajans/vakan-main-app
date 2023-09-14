@@ -1,3 +1,4 @@
+// @ts-ignore 
 import {select} from "@/interfaces/generalResponses";
 import {useTranslation} from "next-i18next";
 import {useState} from "react";
@@ -55,7 +56,7 @@ const MainSearch = ({
                 <div className="container d-flex justify-content-center">
                     <form onSubmit={handleSubmit(onSubmit)} className="simple_form new_search text-center"
                           id="new_search" noValidate={false} action="/vacancies"
-                          accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"
+                          acceptCharset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"
                                                                      autoComplete="off"/><input autoComplete="off"
                                                                                                 type="hidden"
                                                                                                 name="search[company_id]"
@@ -69,9 +70,8 @@ const MainSearch = ({
                                 id="search_category_id">
                                 <option value={''}></option>
                                 {categories?.map((el) => {
-                                    return (
-                                        <>
-                                            <optgroup key={el.id}
+                                    return (    
+                                        <optgroup key={el.id}
                                                       label={el.translations.find(item => item.locale === i18n.language)?.name}>
                                                 {el.alt?.map((el) => {
                                                     return (
@@ -86,7 +86,7 @@ const MainSearch = ({
                                                     );
                                                 })}
                                             </optgroup>
-                                        </>
+                                        
                                     );
                                 })}
 
@@ -130,7 +130,7 @@ const MainSearch = ({
                                 id="search_education_id">
                                 {educations?.map((el) => {
                                     return (
-                                        <>
+                                        
                                             <option value={el.id === 1 ? '' : el.id}
                                                     key={el.id}>
                                                 {
@@ -139,7 +139,7 @@ const MainSearch = ({
                                                     )?.name
                                                 }
                                             </option>
-                                        </>
+                                        
                                     );
                                 })}
                             </select></div>
@@ -153,7 +153,7 @@ const MainSearch = ({
                                     <option value={''}></option>
                                     {modes?.map((el) => {
                                         return (
-                                            <>
+                                            
                                                 <option value={el.id} key={el.id}>
                                                     {
                                                         el.translations.find(
@@ -161,7 +161,7 @@ const MainSearch = ({
                                                         )?.name
                                                     }
                                                 </option>
-                                            </>
+                                            
                                         );
                                     })}
                             </select>
