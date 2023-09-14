@@ -82,7 +82,7 @@ const Footer = () => {
                       </span>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href={`tel:${
                           settings?.find((item) => item.name === "phone-1")
                             ?.link
@@ -92,10 +92,10 @@ const Footer = () => {
                         <span className="text">
                           {settings.find((item) => item.name == "phone-1").link}
                         </span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href={`tel:${
                           settings.find((item) => item.name == "phone-2").link
                         }`}
@@ -104,10 +104,10 @@ const Footer = () => {
                         <span className="text">
                           {settings.find((item) => item.name == "phone-2").link}
                         </span>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href={`mailto:${
                           settings?.find((item) => item.name === "email")?.link
                         }`}
@@ -119,29 +119,29 @@ const Footer = () => {
                               ?.link
                           }
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
                 <ul className="ftco-footer-social list-unstyled float-md-center float-lft">
                   <li className="ftco-animate fadeInUp ftco-animated">
-                    <a
+                    <Link
                       href={
                         settings?.find((item) => item.name === "facebook")?.link
                       }
                     >
                       <span className="icon-facebook"></span>
-                    </a>
+                    </Link>
                   </li>
                   <li className="ftco-animate fadeInUp ftco-animated">
-                    <a
+                    <Link
                       href={
                         settings?.find((item) => item.name === "instagram")
                           ?.link
                       }
                     >
                       <span className="icon-instagram"></span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
