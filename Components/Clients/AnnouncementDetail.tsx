@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useState } from "react";
 import Email from "../../public/images/job-detail-message.svg";
 import Calendar from "../../public/images/job-detail-calendar.svg";
