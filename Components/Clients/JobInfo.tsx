@@ -14,7 +14,7 @@ interface IJobInfo {
   education: string;
 }
 
-function JobInfo({ city, salary, mode, experience, education }: IJobInfo) {
+function JobInfo({ city="Baku", salary, mode, experience, education }: IJobInfo) {
   const { i18n, t } = useTranslation("common");
 
   return (
