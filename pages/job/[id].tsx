@@ -31,7 +31,7 @@ const Index = ({
   const { query } = useRouter();
   const url = location.pathname;
 
-  console.log(vacancy);
+  console.log(parse(vacancy.description.job_description).props.children);
   console.log();
 
   return (
@@ -62,24 +62,28 @@ const Index = ({
               className="width-75"
               subadge={undefined}
               position={vacancy.description.position}
-               salary={`${
-                          (vacancy.description.min_salary ===
-                            vacancy.description.max_salary || vacancy.description.max_salary === 1 )
-                            ? vacancy.description.min_salary
-                            : vacancy.description.min_salary +
-                              " - " +
-                              vacancy.description.max_salary
-                        } AZN`}
-              company={vacancy.description.company}
+              salary={`${
+                vacancy.description.min_salary ===
+                  vacancy.description.max_salary ||
+                vacancy.description.max_salary === 1
+                  ? vacancy.description.min_salary
+                  : vacancy.description.min_salary +
+                    " - " +
+                    vacancy.description.max_salary
+              } AZN`}
+              company={vacancy.description.company.replaceAll("&quot;", '"')}
               shared_time={vacancy.shared_time}
               premium={false}
             />
-            {/* <AnnouncementDetail
-              id={vacancy.id}
-              shared_time={vacancy.shared_time}
-              last_time={vacancy.end_time}
-              view_count={vacancy.view_count}
-            /> */}
+            <div className="d-block d-lg-none w-100">
+              <AnnouncementDetail
+                id={vacancy.id}
+                className="w-full"
+                shared_time={vacancy.shared_time}
+                last_time={vacancy.end_time}
+                view_count={vacancy.view_count}
+              />
+            </div>
             <JobInnerComponentWrapper title={t("about-job")}>
               <JobInfo
                 mode={
@@ -89,14 +93,15 @@ const Index = ({
                       (item) => item.locale === i18n?.language
                     )?.name
                 }
-                 salary={`${
-                          (vacancy.description.min_salary ===
-                            vacancy.description.max_salary || vacancy.description.max_salary === 1 )
-                            ? vacancy.description.min_salary
-                            : vacancy.description.min_salary +
-                              " - " +
-                              vacancy.description.max_salary
-                        } AZN`}
+                salary={`${
+                  vacancy.description.min_salary ===
+                    vacancy.description.max_salary ||
+                  vacancy.description.max_salary === 1
+                    ? vacancy.description.min_salary
+                    : vacancy.description.min_salary +
+                      " - " +
+                      vacancy.description.max_salary
+                } AZN`}
                 city={
                   city
                     .find(
@@ -127,7 +132,7 @@ const Index = ({
             </JobInnerComponentWrapper>
             <JobInnerComponentWrapper title={t("about-job")}>
               <ul>
-                {`${parse(vacancy.description.job_description)}`
+                {`${parse(vacancy.description.job_description)?.props.children}`
                   .split("-")
                   .slice(1)
                   .map((item: any) => (
@@ -137,7 +142,10 @@ const Index = ({
             </JobInnerComponentWrapper>
             <JobInnerComponentWrapper title={t("candidate-requirements")}>
               <ul>
-                {`${parse(vacancy.description.candidate_requirement)}`
+                {`${
+                  parse(vacancy.description.candidate_requirement)?.props
+                    .children
+                }`
                   .split("-")
                   .slice(1)
                   .map((item: any) => (
@@ -146,7 +154,7 @@ const Index = ({
               </ul>
             </JobInnerComponentWrapper>
           </div>
-          <div className="job-detail-right  top-0">
+          <div className="job-detail-right d-none d-lg-block top-0">
             <AnnouncementDetail
               id={vacancy.id}
               shared_time={vacancy.shared_time}

@@ -11,6 +11,7 @@ const Footer = () => {
   const settings = data?.settings;
 
   const [category, setCategory] = useState<select[]>([]);
+  console.log();
 
   useEffect(() => {
     fetch(process.env["NEXT_PUBLIC_MAIN_PATH_WITH_API"] + "categories")
@@ -24,13 +25,20 @@ const Footer = () => {
     <>
       <footer className="ftco-footer  ftco-bg-dark ftco-section">
         <div className="container">
-          <div className="row">
+          <div style={{ alignItems: "baseline" }} className="row">
             <div className={"col-lg-9 col-md-8 col-12"} data-aos="fade-up ">
               <div className="ftco-footer-widget mb-4 col">
-                <h2 className="ftco-heading-2">{t("find-a-job")}</h2>
+                <h2
+                  style={{ fontWeight: 700, fontSize: "36px" }}
+                  className="ftco-heading-2"
+                >
+                  {t("find-a-job")}
+                </h2>
                 <div className="block-23 mb-3">
                   <ul className={"row"}>
                     {category.map((item) => {
+                      console.log(settings);
+
                       return (
                         <li
                           className={"col-md-6 col-lg-4 col-sm-6 col-12"}
@@ -69,38 +77,32 @@ const Footer = () => {
                         {
                           settings?.find((item) => item.name === "address")
                             ?.link
+                          // settings[]
                         }
                       </span>
                     </li>
                     <li>
                       <a
                         href={`tel:${
-                          settings?.find((item) => item.name === "phone_1")
+                          settings?.find((item) => item.name === "phone-1")
                             ?.link
                         }`}
                       >
                         <span className="icon icon-phone"></span>
                         <span className="text">
-                          {
-                            settings?.find((item) => item.name === "phone_1")
-                              ?.link
-                          }
+                          {settings.find((item) => item.name == "phone-1").link}
                         </span>
                       </a>
                     </li>
                     <li>
                       <a
                         href={`tel:${
-                          settings?.find((item) => item.name === "phone_2")
-                            ?.link
+                          settings.find((item) => item.name == "phone-2").link
                         }`}
                       >
                         <span className="icon icon-phone"></span>
                         <span className="text">
-                          {
-                            settings?.find((item) => item.name === "phone_2")
-                              ?.link
-                          }
+                          {settings.find((item) => item.name == "phone-2").link}
                         </span>
                       </a>
                     </li>

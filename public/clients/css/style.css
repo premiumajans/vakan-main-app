@@ -14833,6 +14833,7 @@ label {
 header {
     transition: all .4s
 }
+
 header.fixed {
     position: fixed;
     top: 0;
@@ -14946,12 +14947,12 @@ main.pt {
 }
 
 .announcement-time {
-    gap: 20px;
+    gap: 6px;
     flex-wrap: wrap;
 }
 
 .announcement-time .date-time-box {
-    width: calc((100% - 20px)/2);
+    width: calc((100% - 6px)/2);
 }
 
 
@@ -14998,6 +14999,10 @@ main.pt {
 .job-inner-box .img-box img {
     width: 20px;
     max-height: 18px;
+}
+
+.announcement-detail.w-full {
+    width: 100% !important;
 }
 
 @media (min-width: 992px) {
